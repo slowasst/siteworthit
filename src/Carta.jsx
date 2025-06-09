@@ -3,10 +3,16 @@ import { CardImg, CardTitle } from "react-bootstrap";
 import Card from "react-bootstrap/Card"
 
 function GameCard(props){
+
+    function switchToGamePage(){
+        props.setPosizione('c');
+        props.setCartaSelezionata(props.id);
+        console.log("Carta selezionata: " + props.id);
+    }
+
     return(
-        <Card style={{height:'100%', borderRadius:'20px', backgroundColor:'#FFF7F7'} }>
-            <CardImg style={{borderRadius:'20px'}} src={props.immagine}>
-            </CardImg>
+        <Card onClick={() => {switchToGamePage()}} style={{height:'100%', borderRadius:'20px', backgroundColor:'#FFF7F7', cursor: "pointer"} }>
+            <CardImg style={{borderRadius:'20px'}} src={props.immagine}/>
             <CardTitle style={{marginTop:"10px"}}>
                 <h3>{props.titolo}</h3>
             </CardTitle>
