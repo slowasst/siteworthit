@@ -88,10 +88,10 @@ function App() {
     if(posizione == 'n')
     {return (
       <div>
+        <Row className='cardshowblock'>
         <div>
           <h2>Titoli</h2>
         </div>
-        <Row className='cardshowblock'>
           {showCards()}
         </Row>
       </div>

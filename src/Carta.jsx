@@ -4,7 +4,7 @@ import Card from "react-bootstrap/Card"
 
 function GameCard(props){
     return(
-        <Card style={{height:'100%', borderRadius:'20px', cursor:'hand'} }>
+        <Card style={{height:'100%', borderRadius:'20px', backgroundColor:'#FFF7F7'} }>
             <CardImg style={{borderRadius:'20px'}} src={props.immagine}>
             </CardImg>
             <CardTitle style={{marginTop:"10px"}}>
