@@ -14,9 +14,6 @@ import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-
-
-
 import 'bootstrap/dist/css/bootstrap.min.css'; //Necessario per il funzionamento di react-bootstrap
 
 
@@ -88,7 +85,7 @@ function App() {
     if(posizione == 'n')
     {return (
       <div>
-        <Row className='cardshowblock'>
+        <Row className='cardshowblock'style={{marginTop:"50px"}}>
         <div>
           <h2>Titoli</h2>
         </div>
@@ -111,25 +108,32 @@ function App() {
 
   return(
     <div>
-      <CustomButton testo="Indietro" bgcolor='#FF2020' />
-      <Row className='cardshowblock'>
+      
+      <Row className='cardshowblock' style={{marginTop:"50px"}}>
         <Col lg>
-          <img src={listaGiochi[cartaSelezionata].immagine} style={{boxShadow:'0px 10px 20px 5px rgba(70,70,70,0.55)', borderRadius: "20px"}}/>
+          <img src={listaGiochi[cartaSelezionata].immagine} style={{boxShadow:'0px 10px 20px 5px rgba(70,70,70,0.55)', borderRadius: "20px", width: "300px"}}/>
         </Col>
         <Col>
           <h1>{listaGiochi[cartaSelezionata].titolo}</h1>
           <h5>Sviluppato da {listaGiochi[cartaSelezionata].dev}</h5>
-          <span>{listaGiochi[cartaSelezionata].description}</span>
-          <div style={{marginTop:'20px', backgroundColor: chosencolour, borderRadius: "20px"}}> {/* Use chosencolour */}
+          <div style={{display:'flex', justifyContent:'center'}}>
+          <div style={{marginTop:'20px', backgroundColor: chosencolour, borderRadius: "20px", width: "200px", color: 'white', paddingBottom:"50px",paddingTop:"50px"}}>
             <h2>{listaGiochi[cartaSelezionata].rating}</h2>
             <span>Valutazione</span>
           </div>
+          </div>
         </Col>
       </Row>
+      <Row className='cardshowblock' style={{backgroundColor: "#CCD0D0"}}>
+        <Col>
+          <h3>Descrizione</h3>
+          <p>{listaGiochi[cartaSelezionata].description}</p>
+        </Col>
+      </Row>
+      <CustomButton testo="Indietro" bgcolor='#FF2020' setPosizione={setPosizione} setCarta={setCartaSelezionata}/>
     </div>
   );
 }
-    
   }
 
   return (

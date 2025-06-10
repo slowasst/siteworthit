@@ -113,6 +113,8 @@ button:focus-visible {
 }
 
 .cardshowblock{
+  margin-top: 25px;
+
   width: 100%;
   padding: 10px;
 

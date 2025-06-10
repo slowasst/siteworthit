@@ -5,19 +5,22 @@ function CustomNavBarButton(props) {
 
     const testo = props.testo;
     const bgcolor = props.bgcolor;
-  
+    function TornaIndietro() {
+        props.setPosizione('n');
+        props.setCarta(null);
+    }
   
     return (
   
-      <Button style={{
+      <Button onClick={() => TornaIndietro()}style={{
         height: "90%",
         padding:"15px",
         backgroundColor: bgcolor,
         border: "solid 0px",
         fontWeight: 'bold',
-        marginLeft: '5px',
-        marginRight: '5px'
+        margin: '10px',
       }}>{testo}</Button>
+
   
     )
   }
