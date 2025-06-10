@@ -1,0 +1,185 @@
+{
+    "titoli": [
+        {
+            "IDtitolo": 1,
+            "LinkImg": "https://example.com/image1.jpg",
+            "Titolo": "The Finals",
+            "Dev": "Embark Studios",
+            "Desc": "An exhilarating multiplayer shooter that combines team-based tactics with fast-paced action.",
+            "Valutazione": 85
+        },
+        {
+            "IDtitolo": 2,
+            "LinkImg": "https://example.com/image2.jpg",
+            "Titolo": "Starfield",
+            "Dev": "Bethesda Game Studios",
+            "Desc": "A vast space exploration RPG that allows players to create their own adventures across the cosmos.",
+            "Valutazione": 75
+        },
+        {
+            "IDtitolo": 3,
+            "LinkImg": "https://example.com/image3.jpg",
+            "Titolo": "Cyberpunk 2077",
+            "Dev": "CD Projekt Red",
+            "Desc": "An open-world RPG set in a dystopian future, featuring deep storytelling and immersive gameplay.",
+            "Valutazione": 87
+        },
+        {
+            "IDtitolo": 4,
+            "LinkImg": "https://example.com/image4.jpg",
+            "Titolo": "Metal Gear Solid 3: Snake Eater",
+            "Dev": "Konami",
+            "Desc": "A classic stealth action game that follows the story of Naked Snake during the Cold War.",
+            "Valutazione": 95
+        },
+        {}
+    ],
+    "tag": [
+        {
+            "IDcategoria": 1,
+            "NomeCategoria": "JRPG"
+        },
+        {
+            "IDcategoria": 2,
+            "NomeCategoria": "Action-Adventure"
+        },
+        {
+            "IDcategoria": 3,
+            "NomeCategoria": "RPG"
+        },
+        {
+            "IDcategoria": 4,
+            "NomeCategoria": "FPS"
+        },
+        {
+            "IDcategoria": 5,
+            "NomeCategoria": "PC"
+        },
+        {
+            "IDcategoria": 6,
+            "NomeCategoria": "Switch 2"
+        },
+        {
+            "IDcategoria": 7,
+            "NomeCategoria": "Switch"
+        },
+        {
+            "IDcategoria": 8,
+            "NomeCategoria": "Wii"
+        },
+        {
+            "IDcategoria": 9,
+            "NomeCategoria": "PS5"
+        },
+        {
+            "IDcategoria": 10,
+            "NomeCategoria": "PS4"
+        },
+        {
+            "IDcategoria": 11,
+            "NomeCategoria": "Xbox Series X/S"
+        },
+        {
+            "IDcategoria": 12,
+            "NomeCategoria": "Xbox One"
+        },
+        {
+            "IDcategoria": 13,
+            "NomeCategoria": "Xbox 360"
+        },
+        {
+            "IDcategoria": 14,
+            "NomeCategoria": "Xbox"
+        },
+        {
+            "IDcategoria": 15,
+            "NomeCategoria": "PS3"
+        },
+        {
+            "IDcategoria": 16,
+            "NomeCategoria": "PS2"
+        },
+        {
+            "IDcategoria": 17,
+            "NomeCategoria": "PS1"
+        },
+        {
+            "IDcategoria": 18,
+            "NomeCategoria": "Nintendo DS"
+        },
+        {
+            "IDcategoria": 19,
+            "NomeCategoria": "Nintendo 3DS"
+        },
+        {
+            "IDcategoria": 20,
+            "NomeCategoria": "Combattimento"
+        },
+        {
+            "IDcategoria": 21,
+            "NomeCategoria": "MOBA"
+        },
+        {
+            "IDcategoria": 22,
+            "NomeCategoria": "Combattimento"
+        },
+        {
+            "IDcategoria": 23,
+            "NomeCategoria": "Sport"
+        },
+        {
+            "IDcategoria": 24,
+            "NomeCategoria": "Corse"
+        }
+    ],
+    "titoli_tag": [
+        {
+            "IDtitolo": 1,
+            "IDcategoria": [5, 4, 9, 10, 11]
+        },
+        {
+            "IDtitolo": 2,
+            "IDcategoria": [2, 3, 5, 9, 10, 11]
+        },
+        {
+            "IDtitolo": 3,
+            "IDcategoria": [3, 4, 9, 10, 11]
+        },
+        {
+            "IDtitolo": 4,
+            "IDcategoria": [2, 15, 13, 16] 
+        }
+    ],
+    "recensioni":[
+        {
+            "IDtitolo":1,
+            "Intestazione" : "Un'esperienza di gioco unica",
+            "Desc": "The Finals offre un mix perfetto di strategia e azione frenetica. I combattimenti sono intensi e le meccaniche di gioco sono ben bilanciate.",
+            "Valutazione": 90
+        },
+        {
+            "IDtitolo":1,
+            "Intestazione" : "Un'esperienza di gioco unica",
+            "Desc": "The Finals offre un mix perfetto di strategia e azione frenetica. I combattimenti sono intensi ma le meccaniche di gioco non sono bilanciate.",
+            "Valutazione": 80
+        },
+        {
+            "IDtitolo":2,
+            "Intestazione" : "Un'avventura spaziale epica",
+            "Desc": "Starfield è un gioco che ti permette di esplorare l'universo in modo incredibile. La libertà di scelta e la profondità della storia sono eccezionali.",
+            "Valutazione": 75
+        },
+        {
+            "IDtitolo":3,
+            "Intestazione" : "Cyberpunk 2077: Un capolavoro futuristico",
+            "Desc": "Cyberpunk 2077 è un gioco che ti immerge in un mondo futuristico ricco di dettagli e storie avvincenti. La grafica è mozzafiato e la trama è coinvolgente. Dopo i bug iniziali il gioco è stato ribilanciato ed e diventato un'esperienza fantastica.",
+            "Valutazione": 87
+        },
+        {
+            "IDtitolo":4,
+            "Intestazione" : "Un classico intramontabile",
+            "Desc": "Metal Gear Solid 3: Snake Eater è un gioco che ha definito il genere stealth. La storia è profonda e i personaggi sono indimenticabili. Un must per ogni appassionato di videogiochi.",
+            "Valutazione": 95
+        }
+    ]
+}
