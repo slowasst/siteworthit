@@ -2,10 +2,13 @@
 import Button from 'react-bootstrap/Button';
 
 function CustomNavBarButton(props) {
+
+  let ricercautente = props.ricerca; //Prende la ricerca dall'oggetto props
     if(props.search == null){
-        props.search = false;
+        ricercautente = "";
+      
     }
-    
+
     const testo = props.testo;
     const bgcolor = props.bgcolor;
     
@@ -69,7 +72,7 @@ function CustomNavBarButton(props) {
       else{
         return (
 
-          <Button onClick={() => {fetchGiochi()}} style={{
+          <Button onClick={() => {fetchGiochi(ricercautente)}} style={{
 
             height: "54px",
             padding: "15px",
