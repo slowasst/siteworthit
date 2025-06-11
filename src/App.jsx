@@ -1,5 +1,6 @@
 //React e Vite
 import { useState } from 'react'
+import { useEffect } from 'react';
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -47,7 +48,7 @@ function NavBarHomeDesktop() {
           </Col>
 
           <Col className='rowcenter' sm={3} lg>
-            <CustomButton testo="Login" bgcolor="#FF2020" />
+            <CustomButton search={false} testo="Login" bgcolor="#FF2020" />
           </Col>
         </Row>
       </Container>
@@ -61,15 +62,38 @@ function App() {
   const [posizione,setPosizione] = useState('n');
   const [cartaSelezionata, setCartaSelezionata] = useState(null);
 
-  const [listaGiochi, setListaGiochi] = useState([
-    { immagine: "https://image.api.playstation.com/vulcan/ap/rnd/202501/2217/e5833a53529ff9879e87689f1e8b04d45ba7e6c97fa791e2.png",titolo: "Clair Obscur: Expedition 33", dev: "Sandfall Entertainment", description:"Clair Obscur: Expedition 33 è un gioco di ruolo d'azione in terza persona che combina esplorazione, combattimento e narrativa in un mondo post-apocalittico.", rating: 95},
-    { immagine:"https://multiplayer.net-cdn.it/thumbs/images/2023/12/16/c8b357469ea603d2da39dfb16556d0647d5027b053dc077b_jpg_300x300_q85.jpg", titolo: "The Finals", dev: "Embark Studios", description: "The Finals è un gioco di combattimento in prima persona free-to-play che combina la frenesia del combattimento con la distruzione ambientale e la personalizzazione dei personaggi.", rating: 83},
-    { immagine: "https://assetsio.gnwcdn.com/Valorant-Everything-You-Need-To-Know-Guide.jpg?width=1200&height=1200&fit=crop&quality=100&format=png&enable=upscale&auto=webp", titolo:"Valorant", dev: "Riot Games", description: "Valorant è un gioco di tiro tattico in prima persona che combina abilità uniche dei personaggi con meccaniche di sparatutto tradizionali. È considerato bello solo per il fattore grinding, in sè è abbastanza noioso e non ammette playstile casual.", rating: 60},
-    { immagine: "https://breunor.com/cdn/shop/files/Blade_2560x1440_2560x1440-95718a8046a942675a0bc4d27560e2bb.jpg?v=1718876129", titolo:"Fortnite", dev: "Epic Games", description: "Fortnite è un gioco di sopravvivenza e costruzione in stile battle royale che combina azione frenetica, creatività e competizione. I giocatori possono costruire strutture, raccogliere risorse e combattere per essere l'ultimo a sopravvivere in un'isola dinamica e in continua evoluzione.", rating: 25 },  
-    { immagine: "https://assets-prd.ignimgs.com/2022/02/01/understale-sq-1643754419947.jpg", titolo:"Undertale", dev: "Toby Fox", description: "Undertale e' un RPG abbastanza rivoluzionario che dovrebbe girare su ogni PC moderno.", rating: 78 },  
+  const [listaGiochi, setListaGiochi] = useState([]);
 
-    
-  ]);
+   // useEffect per effettuare la richiesta quando il componente si monta
+   useEffect(() => {
+    const fetchGiochi = async () => { //Credo recuperi asincronamente come funzione i giochi
+      try { //Prova a fare la richiesta in modo chec cosi possiamo sapere se non va bene
+
+        ///RICHIESTA POST
+
+
+        const response = await fetch('http://localhost:5000/api/getgiochi', { titolo: "" }); //Effettua una richiesta GET all'API
+
+        // Controlla se la risposta è OK (status 200)
+        if (!response.ok) {
+          throw new Error(`Errore HTTP! stato: ${response.status}`);
+        }
+
+        // Parsa la risposta come JSON
+        const data = await response.json(); //Penso await faccia aspettare che finisca l'istruzione prima di proseguire
+        console.log(data)
+        // Aggiorna lo stato con i dati ricevuti
+        setListaGiochi(data.titoli); 
+      } catch (error) { //Se ce un errore nella richiesta
+        {
+          alert("Si è verificato un errore durante il recupero dei dati dei giochi. Riprova più tardi.");
+        }
+      }
+    };
+
+    fetchGiochi(); // Chiama la funzione per avviare il recupero dei dati
+  }, []); // L'array vuoto [] come secondo argomento fa sì che useEffect venga eseguito solo una volta al montaggio del componente
+
 
   function showCards() {
     const cards = [];
@@ -136,7 +160,7 @@ function App() {
           <p>{listaGiochi[cartaSelezionata].description}</p>
         </Col>
       </Row>
-      <CustomButton testo="Indietro" bgcolor='#FF2020' setPosizione={setPosizione} setCarta={setCartaSelezionata}/>
+      <CustomButton search={false} testo="Indietro" bgcolor='#FF2020' setPosizione={setPosizione} setCarta={setCartaSelezionata}/>
     </div>
   );
 }
@@ -158,7 +182,7 @@ function App() {
             <Form.Label>
               <h1>Cosa vorresti valutare oggi?</h1>
             </Form.Label>
-            <CustomSearch></CustomSearch>
+            <CustomSearch/>
           </Col>
           <Col sm={4}>
             {/*Divisorio*/}

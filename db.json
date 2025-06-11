@@ -2,7 +2,7 @@
     "titoli": [
         {
             "IDtitolo": 1,
-            "LinkImg": "https://example.com/image1.jpg",
+            "LinkImg": "https://pbs.twimg.com/profile_images/1801278637066375168/plE7VumA_400x400.jpg",
             "Titolo": "The Finals",
             "Dev": "Embark Studios",
             "Desc": "An exhilarating multiplayer shooter that combines team-based tactics with fast-paced action.",
@@ -10,15 +10,15 @@
         },
         {
             "IDtitolo": 2,
-            "LinkImg": "https://example.com/image2.jpg",
-            "Titolo": "Starfield",
-            "Dev": "Bethesda Game Studios",
-            "Desc": "A vast space exploration RPG that allows players to create their own adventures across the cosmos.",
-            "Valutazione": 75
+            "LinkImg": "https://img.playstationtrophies.org/images/2025/04/22/icon/5797072ca796f94e955040e90181a4a8-l.png",
+            "Titolo": "Clair Obscur: Expedition 33",
+            "Dev": "Sandfall Interactive",
+            "Desc": "A narrative-driven adventure game that takes players on a journey through a mysterious world filled with puzzles and challenges.",
+            "Valutazione": 90
         },
         {
             "IDtitolo": 3,
-            "LinkImg": "https://example.com/image3.jpg",
+            "LinkImg": "hhttps://www.discoazul.it/uploads/media/images/396x396/cyberpunk-2077-day-one-edition-xbox-one-19.png",
             "Titolo": "Cyberpunk 2077",
             "Dev": "CD Projekt Red",
             "Desc": "An open-world RPG set in a dystopian future, featuring deep storytelling and immersive gameplay.",
@@ -26,7 +26,7 @@
         },
         {
             "IDtitolo": 4,
-            "LinkImg": "https://example.com/image4.jpg",
+            "LinkImg": "https://image.api.playstation.com/vulcan/ap/rnd/202310/1313/f1d35dfa393b81cde32ec36b4c26fc2f27d005c975f32578.png",
             "Titolo": "Metal Gear Solid 3: Snake Eater",
             "Dev": "Konami",
             "Desc": "A classic stealth action game that follows the story of Naked Snake during the Cold War.",
@@ -165,9 +165,9 @@
         },
         {
             "IDtitolo":2,
-            "Intestazione" : "Un'avventura spaziale epica",
-            "Desc": "Starfield è un gioco che ti permette di esplorare l'universo in modo incredibile. La libertà di scelta e la profondità della storia sono eccezionali.",
-            "Valutazione": 75
+            "Intestazione" : "Un'avventura coinvolgente",
+            "Desc": "Clair Obscur: Expedition 33 è un gioco che ti cattura fin dal primo momento. La storia è avvincente e i personaggi sono ben sviluppati. Un'esperienza da non perdere.",
+            "Valutazione": 90
         },
         {
             "IDtitolo":3,

@@ -14,10 +14,10 @@ function GameCard(props){
         <Card onClick={() => {switchToGamePage()}} style={{height:'100%', borderRadius:'20px', backgroundColor:'#FFF7F7', cursor: "pointer", padding:"25px"} }>
             <CardImg style={{borderRadius:'20px'}} src={props.immagine}/>
             <CardTitle style={{marginTop:"10px"}}>
-                <h3>{props.titolo}</h3>
+                <h3>{props.Titolo}</h3>
             </CardTitle>
             <Card.Text>
-                {props.desc}
+                {props.Dev}
             </Card.Text>
         </Card>
     )

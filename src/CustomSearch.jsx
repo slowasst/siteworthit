@@ -16,7 +16,7 @@ function CustomSearch(){
                     paddingBottom: '10px'
                 }}>
                 </Form.Control>
-                <CustomButton testo="Cerca" bgcolor='red'></CustomButton>
+                <CustomButton search={true} testo="Cerca" bgcolor='red'></CustomButton>
             </div>
         </>
     )

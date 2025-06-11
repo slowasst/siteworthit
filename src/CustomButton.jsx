@@ -2,15 +2,17 @@
 import Button from 'react-bootstrap/Button';
 
 function CustomNavBarButton(props) {
-
+    if(props.search == null){
+        props.search = false;
+    }
+    
     const testo = props.testo;
     const bgcolor = props.bgcolor;
-    function TornaIndietro() {
-        props.setPosizione('n');
-        props.setCarta(null);
-    }
-  
-    return (
+
+
+
+      if(!props.search) {
+      return (
   
       <Button onClick={() => TornaIndietro()}style={{
         height: "90%",
@@ -20,9 +22,32 @@ function CustomNavBarButton(props) {
         fontWeight: 'bold',
         margin: '10px',
       }}>{testo}</Button>
+        
+      )}
+      else{
+        return (
+
+          <Button style={{
+
+            height: "54px",
+            padding: "15px",
+            backgroundColor: "red",
+            border: "0px solid",
+            fontWeight: "bold",
+            marginLeft: "10px",
+            borderRadius: "15px"
+          }}>{testo}</Button>
+
+        )
+      }
+
+    function TornaIndietro() {
+        props.setPosizione('n');
+        props.setCarta(null);
+    }
+  
 
   
-    )
   }
 
 
