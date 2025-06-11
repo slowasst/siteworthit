@@ -18,7 +18,7 @@
         },
         {
             "IDtitolo": 3,
-            "LinkImg": "hhttps://www.discoazul.it/uploads/media/images/396x396/cyberpunk-2077-day-one-edition-xbox-one-19.png",
+            "LinkImg": "https://www.discoazul.it/uploads/media/images/396x396/cyberpunk-2077-day-one-edition-xbox-one-19.png",
             "Titolo": "Cyberpunk 2077",
             "Dev": "CD Projekt Red",
             "Desc": "An open-world RPG set in a dystopian future, featuring deep storytelling and immersive gameplay.",
@@ -31,8 +31,7 @@
             "Dev": "Konami",
             "Desc": "A classic stealth action game that follows the story of Naked Snake during the Cold War.",
             "Valutazione": 95
-        },
-        {}
+        }
     ],
     "tag": [
         {

@@ -4,7 +4,8 @@ import {Button} from 'react-bootstrap'
 
 import CustomButton from './CustomButton';
 
-function CustomSearch(){
+function CustomSearch(props){
+    
 
     return(
         <>

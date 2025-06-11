@@ -12,7 +12,7 @@ function GameCard(props){
 
     return(
         <Card onClick={() => {switchToGamePage()}} style={{height:'100%', borderRadius:'20px', backgroundColor:'#FFF7F7', cursor: "pointer", padding:"25px"} }>
-            <CardImg style={{borderRadius:'20px'}} src={props.immagine}/>
+            <CardImg style={{borderRadius:'20px'}} src={props.LinkImg}/>
             <CardTitle style={{marginTop:"10px"}}>
                 <h3>{props.Titolo}</h3>
             </CardTitle>

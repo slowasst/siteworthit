@@ -23,7 +23,7 @@ app.post('/api/getgiochi', (req, res) => {
         //filtri reg*x per filtrare i titoli
     }
 
-    res.json(titoli); // Invia i titoli come risposta JSON
+    res.json({titoli}); // Invia i titoli come risposta JSON
 }
 );
 
