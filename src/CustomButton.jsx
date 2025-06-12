@@ -1,4 +1,3 @@
-
 import Button from 'react-bootstrap/Button';
 
 function CustomNavBarButton(props) {
@@ -46,11 +45,11 @@ function CustomNavBarButton(props) {
         const data = await response.json(); //Penso await faccia aspettare che finisca l'istruzione prima di proseguire
         console.log(data)
         // Aggiorna lo stato con i dati ricevuti
-        setListaGiochi(data.titoli);
+        setListaGiochi(data.risric);
         console.log(listaGiochi);
       } catch (error) { //Se ce un errore nella richiesta
         {
-          alert("Si è verificato un errore durante il recupero dei dati dei giochi. Riprova più tardi.");
+          alert("Si è verificato un errore durante il recupero dei dati dei giochi. Riprova più tardi. \n" + error.message);
         }
       }
     };

@@ -61,8 +61,8 @@ function NavBarHomeDesktop() {
 function App() {
   const [posizione, setPosizione] = useState('n');
   const [cartaSelezionata, setCartaSelezionata] = useState(null);
-
   const [listaGiochi, setListaGiochi] = useState([]);
+
 
   const fetchGiochi = async (ricerca) => { //Credo recuperi asincronamente come funzione i giochi
     try { //Prova a fare la richiesta in modo chec cosi possiamo sapere se non va bene
@@ -95,13 +95,13 @@ function App() {
 
       // Parsa la risposta come JSON
       const data = await response.json(); //Penso await faccia aspettare che finisca l'istruzione prima di proseguire
-      console.log(data)
+      console.log(data.risric)
       // Aggiorna lo stato con i dati ricevuti
-      setListaGiochi(data.titoli);
-      console.log(listaGiochi);
+      setListaGiochi(data.risric);
+     //console.log("Assegnata la listaGiochi appena caricata la pagina: ", listaGiochi);
     } catch (error) { //Se ce un errore nella richiesta
       {
-        alert("Si è verificato un errore durante il recupero dei dati dei giochi. Riprova più tardi.");
+        alert("Si è verificato un errore durante il recupero dei dati dei giochi. Riprova più tardi. \n" + error.message);
       }
     }
   };
@@ -109,16 +109,14 @@ function App() {
   // useEffect per effettuare la richiesta quando il componente si monta
   useEffect(() => {
 
-    fetchGiochi(); // Chiama la funzione per avviare il recupero dei dati
+     fetchGiochi(); // Chiama la funzione per avviare il recupero dei dati
   }, []); // L'array vuoto [] come secondo argomento fa sì che useEffect venga eseguito solo una volta al montaggio del componente
 
-
-  function showCards(lista) {
-    console.log(lista);
+  function showCards() {
+    const lista = listaGiochi || []; // Usa la listaGiochi come lista da mostrare
+    console.log(lista); 
     const cards = [];
-    const [chosencolour, setChosencolour] = "#000000";
-
-
+  
     lista.forEach((element, i) => {
       cards.push(
         <Col key={'elemento-' + i} md={4} lg={3} >
@@ -126,7 +124,7 @@ function App() {
         </Col>
       )
     });
-
+  
     return cards;
   }
 
@@ -140,8 +138,7 @@ function App() {
             <div>
               <h2>Titoli</h2>
             </div>
-            {
-              showCards(listaGiochi)}
+            { showCards()}
           </Row>
         </div>
       )
