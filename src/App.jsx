@@ -1,5 +1,5 @@
 //React e Vite
-import { useState } from 'react'
+import { use, useState } from 'react'
 import { useEffect } from 'react';
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
@@ -63,9 +63,15 @@ function App() {
   const [cartaSelezionata, setCartaSelezionata] = useState(null);
   const [listaGiochi, setListaGiochi] = useState([]);
 
+  useState(() => {
+    setPosizione('n'); // Inizializza la posizione a 'n' (home)
+  }, [cartaSelezionata]);
+
 
   const fetchGiochi = async (ricerca) => { //Credo recuperi asincronamente come funzione i giochi
     try { //Prova a fare la richiesta in modo chec cosi possiamo sapere se non va bene
+
+      console.log("fetchGiochi chiamata con ricerca:", ricerca);
 
       ///RICHIESTA POST
       //json da mandare
@@ -129,7 +135,8 @@ function App() {
   }
 
   function showBody() {
-    if (posizione == 'n') {
+    console.log("body: ", posizione);
+    if (posizione == 'n' || cartaSelezionata === null) {
       return (
 
         <div>
@@ -138,7 +145,7 @@ function App() {
             <div>
               <h2>Titoli</h2>
             </div>
-            { showCards()}
+            { listaGiochi.length && showCards()}
           </Row>
         </div>
       )
@@ -149,7 +156,7 @@ function App() {
       if (cartaSelezionata != null) {
         listaGiochi[cartaSelezionata]
 
-        var G = parseInt((255 * listaGiochi[cartaSelezionata].rating / 100) * 0.75);
+        var G = parseInt((255 * listaGiochi[cartaSelezionata].Valutazione / 100) * 0.75);
         var R = parseInt((255 - G) * 0.75);
         var B = 0;
         chosencolour = "rgb(" + R + "," + G + "," + B + ")";
@@ -160,14 +167,14 @@ function App() {
         <div>
           <Row className='cardshowblock' style={{ marginTop: "50px" }}>
             <Col lg>
-              <img src={listaGiochi[cartaSelezionata].immagine} style={{ boxShadow: '0px 10px 20px 5px rgba(70,70,70,0.55)', borderRadius: "20px", width: "300px" }} />
+              <img src={listaGiochi[cartaSelezionata].LinkImg} style={{ boxShadow: '0px 10px 20px 5px rgba(70,70,70,0.55)', borderRadius: "20px", width: "300px" }} />
             </Col>
             <Col>
-              <h1>{listaGiochi[cartaSelezionata].titolo}</h1>
-              <h5>Sviluppato da {listaGiochi[cartaSelezionata].dev}</h5>
+              <h1>{listaGiochi[cartaSelezionata].Titolo}</h1>
+              <h5>Sviluppato da {listaGiochi[cartaSelezionata].Dev}</h5>
               <div style={{ display: 'flex', justifyContent: 'center' }}>
                 <div style={{ marginTop: '20px', backgroundColor: chosencolour, borderRadius: "20px", width: "200px", color: 'white', paddingBottom: "50px", paddingTop: "50px" }}>
-                  <h2>{listaGiochi[cartaSelezionata].rating}</h2>
+                  <h2>{listaGiochi[cartaSelezionata].Valutazione}</h2>
                   <span>Valutazione</span>
                 </div>
               </div>
@@ -176,10 +183,10 @@ function App() {
           <Row className='cardshowblock' style={{ backgroundColor: "#CCD0D0" }}>
             <Col>
               <h3>Descrizione</h3>
-              <p>{listaGiochi[cartaSelezionata].description}</p>
+              <p>{listaGiochi[cartaSelezionata].Desc}</p>
             </Col>
           </Row>
-          <CustomButton search={false} testo="Indietro" bgcolor='#FF2020' setPosizione={setPosizione} setCarta={setCartaSelezionata} />
+          <CustomButton search={false} testo="Indietro" bgcolor='#FF2020' setPosizione={setPosizione} setCartaSelezionata={setCartaSelezionata} />
         </div>
       );
     }
@@ -201,7 +208,7 @@ function App() {
             <Form.Label>
               <h1>Cosa vorresti valutare oggi?</h1>
             </Form.Label>
-            <CustomSearch funzione={() => {fetchGiochi()}}/>
+            <CustomSearch onSearch={fetchGiochi} setCartaSelezionata={setCartaSelezionata}/>
           </Col>
           <Col sm={4}>
             {/*Divisorio*/}

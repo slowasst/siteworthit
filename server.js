@@ -16,16 +16,15 @@ const tutto = JSON.parse(fs.readFileSync('db.json'));
 app.post('/api/getgiochi', (req, res) => {
     // Invia i dati come JSON
     // TODO: se c'è un filtro per titolo filtrare i titoli (req.body)
-    
+    console.log('Ricevuta richiesta per /api/getgiochi con body:', req.body);
+    console.log('Ricevuta richiesta per /api/getgiochi con titolo:', req.body.titolo);
     let risric = []; //risric è la variabile che conterrà i titoli filtrati
     let titoli = tutto.titoli || []; //titoli e la variabile dei titoli presi da db.json, se non ce ne sono sarà un array vuoto
     if (req.body && req.body.titolo) {
         //filtri reg*x per filtrare i titoli
         
-        titoli.forEach(element,i => {
-            if(lement.Titolo.toLowerCase().includes(req.body.titolo.toLowerCase())){
-                risric.push(element); //Se il titolo contiene la ricerca, aggiungilo all'array risric
-            }
+        titoli.forEach((element)=> {
+            console.log('Mamma guarda sono nel foreach!;', element);
         });
 
     }

@@ -1,98 +1,63 @@
 import Button from 'react-bootstrap/Button';
 
 function CustomNavBarButton(props) {
+  console.log("entrato in custombutton")
 
-  let ricercautente = props.ricerca; //Prende la ricerca dall'oggetto props
-    if(props.search == null){
-        ricercautente = "";
-      
+  if (props.search == false || props.search == null) {
+    console.log("Bottone normale, props.search: " + props.search);
+  }
+  else{
+    console.log("Ricerca utente: " + props.ricerca);
+  }
+
+  const testo = props.testo;
+  const bgcolor = props.bgcolor;
+
+  // Funzione per gestire il click del bottone  
+  const handleSearchClick = () => {
+    if (props.onSearch) { // Se e stato passato un onSearch come props
+      console.log("Sto per chiamare onSearch con parametro" + props.ricerca);
+      props.onSearch(props.ricerca); // Passa il valore di ricerca
     }
+  };
 
-    const testo = props.testo;
-    const bgcolor = props.bgcolor;
-    
-    const fetchGiochi = async (ricerca) => { //Credo recuperi asincronamente come funzione i giochi
-      try { //Prova a fare la richiesta in modo chec cosi possiamo sapere se non va bene
-          
-        ///RICHIESTA POST
-        //json da mandare
+  if (!props.search) {
+    console.log("Bottone normale");
+    return (
 
-        const pippo = {
-          titolo: ricerca || ""
-        };
-  
-        const response =
-          //Fa un fetch(api, opzioni)
-          await fetch('http://localhost:5000/api/getgiochi', //API
-            //CONFIGURAZIONE
-            {
-              method: 'POST', // richiesta: POST
-              headers: {
-                'Content-Type': 'application/json' // tipo di file: JSON
-              },
-              //contenuto json da mandare
-              body: JSON.stringify(pippo) //Converte l'oggetto pippo in una stringa JSON
-  
-            })
-  
-  
-        // Controlla se la risposta è OK (status 200)
-        if (!response.ok) {
-          throw new Error(`Errore HTTP! stato: ${response.status}`);
-        }
-  
-        // Parsa la risposta come JSON
-        const data = await response.json(); //Penso await faccia aspettare che finisca l'istruzione prima di proseguire
-        console.log(data)
-        // Aggiorna lo stato con i dati ricevuti
-        setListaGiochi(data.risric);
-        console.log(listaGiochi);
-      } catch (error) { //Se ce un errore nella richiesta
-        {
-          alert("Si è verificato un errore durante il recupero dei dati dei giochi. Riprova più tardi. \n" + error.message);
-        }
-      }
-    };
-  
-
-      if(!props.search) {
-      return (
-  
-      <Button onClick={() => TornaIndietro()}style={{
+      <Button onClick={() => TornaIndietro()} style={{
         height: "90%",
-        padding:"15px",
+        padding: "15px",
         backgroundColor: bgcolor,
         border: "solid 0px",
         fontWeight: 'bold',
         margin: '10px',
       }}>{testo}</Button>
-        
-      )}
-      else{
-        return (
 
-          <Button onClick={() => {fetchGiochi(ricercautente)}} style={{
+    )
+  }
+  else {
+    console.log("Ricerca utente: " + props.ricerca);
+    return (
+      <Button onClick={handleSearchClick}  style={{
 
-            height: "54px",
-            padding: "15px",
-            backgroundColor: "red",
-            border: "0px solid",
-            fontWeight: "bold",
-            marginLeft: "10px",
-            borderRadius: "15px"
-          }}>{testo}</Button>
+        height: "54px",
+        padding: "15px",
+        backgroundColor: "red",
+        border: "0px solid",
+        fontWeight: "bold",
+        marginLeft: "10px",
+        borderRadius: "15px"
+      }}>{testo}</Button>
 
-        )
-      }
-
-    function TornaIndietro() {
-        props.setPosizione('n');
-        props.setCarta(null);
-    }
-  
-
-  
+    )
   }
 
+  function TornaIndietro() {
+    if (props.setPosizione) props.setPosizione('n');
+    if (props.setCartaSelezionata) props.setCartaSelezionata(null);
+  }
+}
 
-  export default CustomNavBarButton
+
+export default CustomNavBarButton
